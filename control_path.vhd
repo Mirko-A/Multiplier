@@ -75,10 +75,10 @@ begin
                     end if;
                 end if;
             when add =>
-                sel <= "10";
+                sel <= "01";
                 state_next <= shift;
             when shift =>
-                sel <= "01";
+                sel <= "10";
                 if (count_0 = '1') then
                     state_next <= idle;
                 else 

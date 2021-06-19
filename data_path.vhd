@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -55,6 +55,7 @@ signal decrementer_out_s: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal adder_out_s: STD_LOGIC_VECTOR(2*WIDTH-1 downto 0);
 
 begin
+    r_out <= p_reg_s;
     
     shift_left1: entity work.shifter_left
         generic map(WIDTH => WIDTH)
@@ -102,7 +103,7 @@ begin
                                                     
    mux_n: entity work.mux_4_na_1
         generic map(WIDTH => WIDTH)
-        port map(x0 => (others => '0'),
+        port map(x0 => std_logic_vector(to_unsigned(WIDTH,WIDTH)),
                         x1 => n_reg_s,
                         x2 => decrementer_out_s,
                         x3 => (others => '0'),
@@ -141,6 +142,5 @@ begin
          port map(clk => clk,
                   d => p_next_s,
                   q => p_reg_s);
-                         
-    r_out <= p_reg_s;                            
+                                                     
 end Behavioral;
