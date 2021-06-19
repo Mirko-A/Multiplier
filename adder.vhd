@@ -44,7 +44,7 @@ begin
     
     add: process (a, b) is
     begin
-        c <= std_logic_vector(unsigned(a) - unsigned(b));
+        c <= std_logic_vector(unsigned(a) + unsigned(b));
     end process;
 
 end Behavioral;

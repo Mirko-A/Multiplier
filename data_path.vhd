@@ -55,7 +55,6 @@ signal decrementer_out_s: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal adder_out_s: STD_LOGIC_VECTOR(2*WIDTH-1 downto 0);
 
 begin
-    r_out <= p_reg_s;
     
     shift_left1: entity work.shifter_left
         generic map(WIDTH => WIDTH)
@@ -142,5 +141,6 @@ begin
          port map(clk => clk,
                   d => p_next_s,
                   q => p_reg_s);
-                                                     
+                         
+    r_out <= p_reg_s;                            
 end Behavioral;

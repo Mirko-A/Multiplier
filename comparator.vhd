@@ -41,7 +41,7 @@ architecture Behavioral of comparator is
 
 begin
     
-    comp: process is
+    comp: process(x) is
     begin
         if(x = std_logic_vector(to_unsigned(0, WIDTH))) then
             y <= '1';

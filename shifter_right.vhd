@@ -45,7 +45,7 @@ begin
     shift: process (x) is
     begin
        b_reg_0 <= x(0);
-       y <= '0' & x(WIDTH-2 downto 0);
+       y <= '0' & x(WIDTH-1 downto 1);
     end process;
 
 end Behavioral;

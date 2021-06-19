@@ -43,7 +43,7 @@ begin
     
     shift: process (x) is
     begin
-        y <= x(WIDTH-1 downto 1) & '0';
+        y <= x(WIDTH-2 downto 0) & '0';
     end process;
     
 end Behavioral;

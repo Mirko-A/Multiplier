@@ -62,7 +62,7 @@ begin
     begin
         state_next <= state_reg;
         ready <= '0';
-        
+        sel <= "00";
         case state_reg is
             when idle =>
                 ready <= '1';
